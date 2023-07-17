@@ -76,7 +76,7 @@ export default function ProDialog() {
         <DialogHeader>
           <DialogTitle>Make profile</DialogTitle>
           <DialogDescription>
-            Click save when you&apos;re done.
+            Click save when you are done.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
