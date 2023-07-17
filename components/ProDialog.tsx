@@ -76,7 +76,7 @@ export default function ProDialog() {
         <DialogHeader>
           <DialogTitle>Make profile</DialogTitle>
           <DialogDescription>
-            Click save when you're done.
+            Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -105,7 +105,7 @@ export default function ProDialog() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger id="framework">
+                      <SelectTrigger id="blood">
                         <SelectValue
                           defaultValue={field.value}
                           placeholder="Blood group"
@@ -165,7 +165,7 @@ export default function ProDialog() {
             />
             <div className="pt-6 space-x-2 flex items-center justify-end w-full">
               <Button type="submit" disabled={loading}>
-                <Loader2 className={`${loading ? "flex" : "hidden"} mr-2 h-4 w-4 animate-spin`} />
+                <Loader2 className={`${loading ? 'flex' : 'hidden'} mr-2 h-4 w-4 animate-spin`} />
                 Create profile
               </Button>
             </div>
