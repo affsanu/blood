@@ -3,8 +3,9 @@
 import { useAuth } from '@clerk/nextjs';
 import Image from 'next/image';
 
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const HeroSection = () => {
     const { sessionId } = useAuth();
@@ -34,13 +35,13 @@ const HeroSection = () => {
                             transition={{ duration: 0.2, delay: 0.9 }}
                         >
                             {sessionId ? (
-                                <Button variant="destructive" size="sm" className='uppercase mt-6'>
+                                <Link href="/search" className={`${buttonVariants({ variant: "destructive", size: "sm" })} uppercase mt-6`}>
                                     Find a blood donor
-                                </Button>
+                                </Link>
                             ) : (
-                                <Button variant="default" size="sm" className='uppercase mt-6'>
+                                <Link href="/sign-in" className={`${buttonVariants({ variant: "default", size: "sm" })} uppercase mt-6`}>
                                     Register as donor
-                                </Button>
+                                </Link>
                             )}
                         </motion.div>
                     </div>
