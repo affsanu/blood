@@ -1,22 +1,23 @@
 "use client";
 
 import * as z from "zod";
-import { Button } from "@/components/ui/button"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input"
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
-import { Loader2 } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -76,7 +77,7 @@ export default function ProDialog() {
         <DialogHeader>
           <DialogTitle>Make profile</DialogTitle>
           <DialogDescription>
-            Click save when you are done.
+            Click Create profile when you are done
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
