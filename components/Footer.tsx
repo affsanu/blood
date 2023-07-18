@@ -31,9 +31,9 @@ const Footer = () => {
             </div>
             <span className="text-sm font-normal">
                 Copyright © {thisYear} {" "}
-                <Link href="https://sanuislam.com" className="text-rose-500">Priyo Saidpur</Link>
+                <Link href="https://priyosaidpur.com" className="text-rose-500">Priyo Saidpur</Link>
                 {" "} by {" "}
-                <Link href="https://priyosaidpur.com" className="text-cyan-500">Sanu Islam</Link>
+                <Link href="https://sanuislam.com" className="text-cyan-500">Sanu Islam</Link>
             </span>
         </div>
     )

@@ -1,6 +1,7 @@
 "use client";
 
 import ProDialog from '@/components/ProDialog'
+import BenifitSection from '@/components/sections/BenifitSection';
 import DonorCard from '@/components/sections/DonorCard';
 import HeroSection from '@/components/sections/HeroSection';
 import { Separator } from '@/components/ui/separator';
@@ -22,7 +23,7 @@ const Home = () => {
       <ProDialog />
       <HeroSection />
       <DonorCard />
-      <Separator />
+      <BenifitSection />
     </>
   )
 }
