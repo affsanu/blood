@@ -88,7 +88,7 @@ export default function ProDialog() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Full name" {...field} />
+                    <Input disabled={loading} placeholder="Your Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -102,14 +102,11 @@ export default function ProDialog() {
                   <Select
                     disabled={loading}
                     onValueChange={field.onChange}
-                    value={field.value}
-                    defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger id="blood">
+                      <SelectTrigger>
                         <SelectValue
-                          defaultValue={field.value}
-                          placeholder="Blood group"
+                          placeholder="Select Blood Group"
                         />
                       </SelectTrigger>
                     </FormControl>
@@ -134,7 +131,7 @@ export default function ProDialog() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Phone number" {...field} />
+                    <Input disabled={loading} placeholder="Mobile No" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -146,7 +143,7 @@ export default function ProDialog() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input disabled={loading} placeholder="NID number" {...field} />
+                    <Input type="date" disabled={loading} placeholder="NID number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

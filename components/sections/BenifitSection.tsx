@@ -1,15 +1,81 @@
-import React from 'react'
+"use client";
+
+import { motion } from "framer-motion";
+import BenifitTitle from "../BenifitTitle";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import Image from "next/image";
+
+const notifications = [
+  {
+    title: "Your call has been confirmed.",
+    description: "1 hour ago",
+  },
+  {
+    title: "You have a new message!",
+    description: "1 hour ago",
+  },
+  {
+    title: "Your subscription is expiring soon!",
+    description: "2 hours ago",
+  },
+  {
+    title: "Your subscription is expiring soon!",
+    description: "2 hours ago",
+  },
+]
 
 const BenifitSection = () => {
   return (
-    <div className='bg-gradient-to-r from-cyan-200 to-teal-300 py-4'>
-      <div className='container flex flex-col items-center'>
-        <span className=' text-rose-500 ethnocentric'>Why Priyo Blood?</span>
-        <p className='text-xs'>Be a Hero, Donate Priyo Blood</p>
-        <div className='grid grid-cols-2 py-4 justify-between'>
-          <div>a</div>
-          <div>b</div>
-        </div>
+    <div className='py-4'>
+      <BenifitTitle />
+      <div className="container lg:flex items-center mt-4">
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 1.3 }}
+          className="hidden lg:block w-full lg:w-1/2">
+          <div className="lg:max-w-lg">
+            <Image src="/assets/images/child/child3.jpg" alt="child"
+              width={500}
+              height={500}
+              className="overflow-hidden"
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 1.4 }}
+          className="w-full lg:w-1/2">
+          <Card className="lg:max-w-lg backdrop-blur-sm bg-white/10">
+            <CardHeader>
+              <CardTitle>Blood in your hand</CardTitle>
+              <CardDescription>You can easy find all blood group.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div>
+                {notifications.map((notification, index) => (
+                  <div
+                    key={index}
+                    className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+                  >
+                    <span className="flex h-2 w-2 translate-y-1 rounded-full bg-teal-400" />
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        {notification.title}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {notification.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </div>
   )

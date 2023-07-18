@@ -13,7 +13,7 @@ interface BloodCardProps {
 
 const BloodCard = ({ group, type, user, desc }: BloodCardProps) => {
     return (
-        <Card className="w-auto mt-4 cursor-pointer backdrop-blur-sm bg-white/30">
+        <Card className="w-auto mt-4 cursor-pointer backdrop-blur-sm bg-white/30 hover:scale-105 duration-300">
             <CardHeader className='flex justify-center items-center gap-1'>
                 <CardTitle className="text-sm"><span className="">({group})</span> {type}</CardTitle>
                 <CardDescription className='text-rose-400 font-bold'>
