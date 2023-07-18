@@ -52,7 +52,7 @@ const HeroSection = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2, delay: 0.9 }}
                     className='flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2'>
-                    <Image src="/assets/images/banner.jpg" alt='banner' width={600} height={600} />
+                    <Image src="/assets/images/banner.png" alt='banner' width={600} height={600} />
                 </motion.div>
             </div>
         </header>

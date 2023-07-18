@@ -21,7 +21,8 @@ const DonorCard = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2, delay: 1.1 }}
-            className="container mt-6">
+            className="container"
+            >
             <TitleProps title="List of blood group" />
             <div className="grid grid-cols-2 lg:grid-cols-8 gap-4">
                 {Users.map((blood) => (

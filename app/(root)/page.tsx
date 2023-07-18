@@ -20,10 +20,9 @@ const Home = () => {
   return (
     <>
       <ProDialog />
-      <div className=''>
-        <HeroSection />
-        <DonorCard />
-      </div>
+      <HeroSection />
+      <DonorCard />
+      <Separator />
     </>
   )
 }
