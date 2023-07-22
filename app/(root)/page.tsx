@@ -4,6 +4,7 @@ import ProDialog from '@/components/ProDialog'
 import AppDownloadSection from '@/components/sections/AppDownloadSection';
 import BenifitSection from '@/components/sections/BenifitSection';
 import DonorCard from '@/components/sections/DonorCard';
+import DonorProfile from '@/components/sections/DonorProfile';
 import HeroSection from '@/components/sections/HeroSection';
 import { Separator } from '@/components/ui/separator';
 import { useEffect, useState } from 'react'
@@ -26,6 +27,7 @@ const Home = () => {
       <DonorCard />
       <BenifitSection />
       <AppDownloadSection />
+      <DonorProfile />
     </>
   )
 }

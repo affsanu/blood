@@ -6,6 +6,8 @@ import { UserButton } from "@clerk/nextjs";
 import { delay, motion } from 'framer-motion';
 
 import { buttonVariants } from './ui/button'
+import Image from 'next/image';
+import { Logo2 } from '@/public/assets';
 
 
 const Navigation = () => {
@@ -21,7 +23,7 @@ const Navigation = () => {
                     transition={{ duration: 0.5 }}
                     className='ethnocentric text-rose-500 uppercase hover:text-red-600 text-xl'
                 >
-                    <Link href="/">Blood<span className='text-xs'>TM</span></Link>
+                    <Image src={Logo2} alt='Logo' width={110} />
                 </motion.div>
 
                 <motion.div
