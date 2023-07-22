@@ -1,23 +1,45 @@
-"use client";
-import CountUp from 'react-countup';
-import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge';
+"use client"
+import { Navigation } from 'lucide-react';
+import { Button } from './ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import Image from 'next/image';
 
+
 interface BloodCardProps {
-    group: string;
-    type: string;
-    user: number;
-    desc: string;
+    userId: string;
+    name: string;
+    blood: string;
+    id: string;
+    phone: string;
+    address: string;
+    birth: string;
+    district: string;
 }
 
 
-const ProfileCard = ({ group, type, user, desc }: BloodCardProps) => {
+const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district }: BloodCardProps) => {
     return (
-        <Card className="w-auto mt-4 cursor-pointer backdrop-blur-sm bg-white/30 hover:scale-105 duration-300">
+        <Card className="w-auto mt-4 cursor-pointer backdrop:blur-sm bg-white/10 hover:scale-105 duration-300">
             <CardHeader className='flex justify-center items-center gap-1'>
-                <Image src="/assets/icons/bloodTypeA.svg" alt='blood type A' width={24} height={24} />
+                <Image
+                    src="/assets/images/profile.jpg"
+                    alt='blood type A'
+                    width={100} height={100}
+                    className='rounded-full'
+                />
+                <CardTitle className='text-lg'>{name}</CardTitle>
+                <CardDescription className='uppercase text-xs flex items-center gap-2'>
+                    <Navigation className='w-4' />
+                    {district}
+                    </CardDescription>
             </CardHeader>
+            <CardContent className='flex justify-center'>
+
+            </CardContent>
+            <CardFooter className='flex justify-between'>
+                <span className='text-red-500 font-extrabold'>{blood === "ap" ? "A+" : (blood === "an" ? "A-" : (blood === "bp" ? "B+" : (blood === "bn" ? "B-" : (blood === "abp" ? "AB+" : (blood === "abn" ? "AB-" : (blood === "op" ? "O+" : "O-"))))))}</span>
+                <Button variant="default" size="sm">View profile</Button>
+            </CardFooter>
         </Card>
     )
 }

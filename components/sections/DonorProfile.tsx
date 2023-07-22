@@ -1,41 +1,54 @@
-"use client";
+"use client"
 import { motion } from "framer-motion";
 
 import TitleProps from "../TitleProps";
 import ProfileCard from "../ProfileCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Users = [
-    { group: "A+", type: "Positive", user: 300, desc: "Deploy your new project in one-click." },
-    { group: "A-", type: "Negative", user: 65, desc: "Deploy your new project in one-click." },
-    { group: "B+", type: "Positive", user: 750, desc: "Deploy your new project in one-click." },
-    { group: "B-", type: "Negative", user: 13, desc: "Deploy your new project in one-click." },
-    { group: "AB+", type: "Positive", user: 444, desc: "Deploy your new project in one-click." },
-    { group: "AB-", type: "Negative", user: 265, desc: "Deploy your new project in one-click." },
-    { group: "O+", type: "Positive", user: 115, desc: "Deploy your new project in one-click." },
-    { group: "O-", type: "Negative", user: 77, desc: "Deploy your new project in one-click." },
-    { group: "A+", type: "Positive", user: 300, desc: "Deploy your new project in one-click." },
-    { group: "A-", type: "Negative", user: 65, desc: "Deploy your new project in one-click." },
-    { group: "B+", type: "Positive", user: 750, desc: "Deploy your new project in one-click." },
-    { group: "B-", type: "Negative", user: 13, desc: "Deploy your new project in one-click." },
-    { group: "AB+", type: "Positive", user: 444, desc: "Deploy your new project in one-click." },
-    { group: "AB-", type: "Negative", user: 265, desc: "Deploy your new project in one-click." },
-    { group: "O+", type: "Positive", user: 115, desc: "Deploy your new project in one-click." },
-    { group: "O-", type: "Negative", user: 77, desc: "Deploy your new project in one-click." },
-]
+interface DonorProfileProps {
+    userId: string;
+    name: string;
+    blood: string;
+    id: string;
+    phone: string;
+    address: string;
+    birth: string;
+    district: string;
+}
 
-const DonorProfile = () => {
+const DonorProfile: React.FC = () => {
+    const [users, setusers] = useState<DonorProfileProps[]>([]);
+
+    useEffect(() => {
+        // Fetch card data from the server using Axios
+        axios.get<DonorProfileProps[]>('/api/profile').then((response) => {
+            setusers(response.data);
+        });
+    }, []);
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2, delay: 1.1 }}
             className="container mb-4 py-4"
-            >
+        >
             <TitleProps title="Donor Profiles" />
-            <div className="grid grid-cols-2 lg:grid-cols-8 gap-4">
-                {Users.map((blood) => (
-                    <ProfileCard key={blood.group} group={blood.group} type={blood.type} user={blood.user} desc={blood.desc} />
-                ))}
+            <div className="grid md:grid-cols-3  lg:grid-cols-5 gap-4">
+                {users.map((user) => (
+                    <ProfileCard
+                        key={user.id}
+                        name={user.name}
+                        id={user.id}
+                        userId={user.userId}
+                        blood={user.blood}
+                        phone={user.phone}
+                        address={user.address}
+                        birth={user.birth}
+                        district={user.district}
+                    />
+                )
+                )}
             </div>
         </motion.div>
     )

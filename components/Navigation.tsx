@@ -3,7 +3,7 @@
 import { useAuth } from '@clerk/nextjs';
 import Link from 'next/link'
 import { UserButton } from "@clerk/nextjs";
-import { delay, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { buttonVariants } from './ui/button'
 import Image from 'next/image';
