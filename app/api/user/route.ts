@@ -5,20 +5,20 @@ import { NextResponse } from "next/server"
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { name, phone, address, nid, blood } = body;
+        const { name, phone, address, birth, blood, district } = body;
         const { userId } = auth();
 
         if (!userId) {
             return new NextResponse("Unauthorize!", { status: 401 });
         }
 
-        if (!name || !phone || !address || !nid || !blood) {
+        if (!name || !phone || !address || !birth || !blood || !district) {
             return new NextResponse("All field are required!", { status: 400 });
         }
 
         const profile = await prisma.user.create({
             data: {
-                name, phone, blood: blood, address, nid, avatar: userId, userId
+                name, phone, blood, address, birth, userId, district
             }
         });
 

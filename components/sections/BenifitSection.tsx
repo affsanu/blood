@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import BenifitTitle from "../BenifitTitle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const notifications = [
   {
@@ -24,7 +25,20 @@ const notifications = [
   },
 ]
 
+
 const BenifitSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const random_number = Math.floor(Math.random() * 3) + 1;
+      console.log(random_number)
+      setCurrentIndex(random_number);
+    }, 5000)
+
+    return () => clearInterval(intervalId);
+  }, [])
+
   return (
     <div className='py-4'>
       <BenifitTitle />
@@ -36,7 +50,7 @@ const BenifitSection = () => {
           transition={{ duration: 0.2, delay: 1.3 }}
           className="hidden lg:block w-full lg:w-1/2">
           <div className="lg:max-w-lg">
-            <Image src="/assets/images/child/child3.jpg" alt="child"
+            <Image src={`/assets/images/child/child${currentIndex}.jpg`} alt="child"
               width={500}
               height={500}
               className="overflow-hidden"

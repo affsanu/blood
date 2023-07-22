@@ -23,8 +23,9 @@ const formSchema = z.object({
   name: z.string().min(1),
   phone: z.string().min(11).max(11),
   address: z.string().min(3),
-  nid: z.string().min(10).max(17),
-  blood: z.string().min(1).max(3),
+  birth: z.string().min(1),
+  blood: z.string().min(1),
+  district: z.string().min(1),
 });
 
 export default function ProDialog() {
@@ -51,8 +52,9 @@ export default function ProDialog() {
       name: "",
       address: "",
       phone: "",
-      nid: "",
+      birth: "",
       blood: "",
+      district: "",
     },
   });
 
@@ -139,12 +141,39 @@ export default function ProDialog() {
             />
             <FormField
               control={form.control}
-              name="nid"
+              name="birth"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="date" disabled={loading} placeholder="NID number" {...field} />
+                    <Input type="date" disabled={loading} placeholder="Date of birth" {...field} />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="district"
+              render={({ field }) => (
+                <FormItem>
+                  <Select
+                    disabled={loading}
+                    onValueChange={field.onChange}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          placeholder="District"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="nilphamari">Nilphamari</SelectItem>
+                      <SelectItem value="dinajpur">Dinajpur</SelectItem>
+                      <SelectItem value="rangpur">Rangpur</SelectItem>
+                      <SelectItem value="rajshahi">Rajshahi</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

@@ -13,7 +13,7 @@ const Navigation = () => {
 
 
     return (
-        <div className='w-full h-16 border-b flex items-center shadow-sm'>
+        <div className='w-full h-16 border-b flex items-center shadow-sm bg-gradient-to-r from-teal-100 via-blue-100 to-cyan-100'>
             <div className='container mx-auto flex justify-between items-center'>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -22,7 +22,7 @@ const Navigation = () => {
                     className='ethnocentric text-rose-500 uppercase hover:text-red-600 text-xl'
                 >
                     <Link href="/">Blood<span className='text-xs'>TM</span></Link>
-                </motion.div> 
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -37,7 +37,9 @@ const Navigation = () => {
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ duration: 0.2, delay: 0.6 }}
                                 >
-                                    <Link href="/dashboard" className={`${buttonVariants({ variant: "outline", size: "sm" })} border-rose-100 text-rose-500 hover:border-rose-200 hover:text-rose-600 hover:bg-rose-100`}>Dashboard</Link>
+                                    <Link href="/dashboard" className={`${buttonVariants({ variant: "ghost", size: "sm" })} border-rose-100 text-rose-500 hover:border-rose-200 hover:text-rose-600 hover:bg-gradient-to-r hover:from-rose-100`}>
+                                        Dashboard
+                                    </Link>
                                 </motion.span>
                                 <motion.span
                                     initial={{ x: -20, opacity: 0 }}

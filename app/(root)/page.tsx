@@ -1,6 +1,7 @@
 "use client";
 
 import ProDialog from '@/components/ProDialog'
+import AppDownloadSection from '@/components/sections/AppDownloadSection';
 import BenifitSection from '@/components/sections/BenifitSection';
 import DonorCard from '@/components/sections/DonorCard';
 import HeroSection from '@/components/sections/HeroSection';
@@ -24,6 +25,7 @@ const Home = () => {
       <HeroSection />
       <DonorCard />
       <BenifitSection />
+      <AppDownloadSection />
     </>
   )
 }
