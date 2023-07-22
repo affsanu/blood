@@ -32,7 +32,6 @@ const BenifitSection = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       const random_number = Math.floor(Math.random() * 3) + 1;
-      console.log(random_number)
       setCurrentIndex(random_number);
     }, 5000)
 
@@ -50,7 +49,7 @@ const BenifitSection = () => {
           transition={{ duration: 0.2, delay: 1.3 }}
           className="hidden lg:block w-full lg:w-1/2">
           <div className="lg:max-w-lg">
-            <Image src={`/assets/images/child/child${currentIndex}.jpg`} alt="child"
+            <Image src={`/assets/images/child/child${currentIndex === 0? currentIndex+1 : currentIndex}.jpg`} alt="child"
               width={500}
               height={500}
               className="overflow-hidden"

@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +18,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input"
+import { ScrollArea } from "./ui/scroll-area";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -27,6 +28,89 @@ const formSchema = z.object({
   blood: z.string().min(1),
   district: z.string().min(1),
 });
+
+const districts = [
+  // B
+  { label: "Bagerhat", value: "Bagerhat" },
+  { label: "Bandarban", value: "Bandarban" },
+  { label: "Barguna", value: "Barguna" },
+  { label: "Barishal", value: "Barishal" },
+  { label: "Bhola", value: "Bhola" },
+  { label: "Bogra", value: "Bogra" },
+  { label: "Brahmanbaria", value: "Brahmanbaria" },
+  // C
+  { label: "Chandpur", value: "Chandpur" },
+  { label: "Chattogram", value: "Chattogram" },
+  { label: "Chuadanga", value: "Chuadanga" },
+  { label: "Cox's Bazar", value: "Cox's Bazar" },
+  // D
+  { label: "Dhaka", value: "Dhaka" },
+  { label: "Dinajpur", value: "Dinajpur" },
+  // F
+  { label: "Faridpur", value: "Faridpur" },
+  { label: "Feni", value: "Feni" },
+  // G
+  { label: "Gaibandha", value: "Gaibandha" },
+  { label: "Gazipur", value: "Gazipur" },
+  { label: "Gopalganj", value: "Gopalganj" },
+  // H
+  { label: "Habiganj", value: "Habiganj" },
+  // J
+  { label: "Jamalpur", value: "Jamalpur" },
+  { label: "Jashore", value: "Jashore" },
+  { label: "Jamalpur", value: "Jamalpur" },
+  { label: "Jashore", value: "Jashore" },
+  { label: "Jhalokati", value: "Jhalokati" },
+  { label: "Jhenaidah", value: "Jhenaidah" },
+  { label: "Joypurhat", value: "Joypurhat" },
+  // K
+  { label: "Khagrachhari", value: "Khagrachhari" },
+  { label: "Khulna", value: "Khulna" },
+  { label: "Kishoreganj", value: "Kishoreganj" },
+  { label: "Kurigram", value: "Kurigram" },
+  { label: "Kushtia", value: "Kushtia" },
+  // L
+  { label: "Lakshmipur", value: "Lakshmipur" },
+  { label: "Lalmonirhat", value: "Lalmonirhat" },
+  // M
+  { label: "Madaripur", value: "Madaripur" },
+  { label: "Magura", value: "Magura" },
+  { label: "Manikganj", value: "Manikganj" },
+  { label: "Meherpur", value: "Meherpur" },
+  { label: "Moulvibazar", value: "Moulvibazar" },
+  { label: "Munshiganj", value: "Munshiganj" },
+  { label: "Mymensingh", value: "Mymensingh" },
+  // N
+  { label: "Naogaon", value: "Naogaon" },
+  { label: "Narail", value: "Narail" },
+  { label: "Narayanganj", value: "Narayanganj" },
+  { label: "Narsingdi", value: "Narsingdi" },
+  { label: "Natore", value: "Natore" },
+  { label: "Netrokona", value: "Netrokona" },
+  { label: "Nilphamari", value: "Nilphamari" },
+  { label: "Noakhali", value: "Noakhali" },
+  // P
+  { label: "Pabna", value: "Pabna" },
+  { label: "Panchagarh", value: "Panchagarh" },
+  { label: "Patuakhali", value: "Patuakhali" },
+  { label: "Pirojpur", value: "Pirojpur" },
+  // R
+  { label: "Rajbari", value: "Rajbari" },
+  { label: "Rajshahi", value: "Rajshahi" },
+  { label: "Rangamati", value: "Rangamati" },
+  { label: "Rangpur", value: "Rangpur" },
+  // S
+  { label: "Satkhira", value: "Satkhira" },
+  { label: "Shariatpur", value: "Shariatpur" },
+  { label: "Sherpur", value: "Sherpur" },
+  { label: "Sirajganj", value: "Sirajganj" },
+  { label: "Sunamganj", value: "Sunamganj" },
+  { label: "Sylhet", value: "Sylhet" },
+  // T
+  { label: "Tangail", value: "Tangail" },
+  { label: "Thakurgaon", value: "Thakurgaon" },
+
+]
 
 export default function ProDialog() {
   const [isOpen, setIsOpen] = useState(false)
@@ -168,10 +252,13 @@ export default function ProDialog() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="nilphamari">Nilphamari</SelectItem>
-                      <SelectItem value="dinajpur">Dinajpur</SelectItem>
-                      <SelectItem value="rangpur">Rangpur</SelectItem>
-                      <SelectItem value="rajshahi">Rajshahi</SelectItem>
+                      <ScrollArea className="h-72">
+                        {districts.map((district) => (
+                          <React.Fragment key={district.value}>
+                            <SelectItem value={district.value}>{district.label}</SelectItem>
+                          </React.Fragment>
+                        ))}
+                      </ScrollArea>
                     </SelectContent>
                   </Select>
                   <FormMessage />

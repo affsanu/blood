@@ -19,7 +19,7 @@ interface BloodCardProps {
 
 const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district }: BloodCardProps) => {
     return (
-        <Card className="w-auto mt-4 cursor-pointer backdrop:blur-sm bg-white/10 hover:scale-105 duration-300">
+        <Card className="w-auto mt-4  backdrop:blur-sm bg-white/10 ">
             <CardHeader className='flex justify-center items-center gap-1'>
                 <Image
                     src="/assets/images/profile.jpg"
