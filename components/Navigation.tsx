@@ -21,9 +21,10 @@ const Navigation = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className='ethnocentric text-rose-500 uppercase hover:text-red-600 text-xl'
                 >
-                    <Image src={Logo2} alt='Logo' width={110} />
+                    <Link href="/">
+                        <Image src={Logo2} alt='Logo' width={110} />
+                    </Link>
                 </motion.div>
 
                 <motion.div
