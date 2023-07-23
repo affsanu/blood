@@ -31,14 +31,31 @@ const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district 
                 <CardDescription className='uppercase text-xs flex items-center gap-2'>
                     <Navigation className='w-4' />
                     {district}
-                    </CardDescription>
+                </CardDescription>
             </CardHeader>
             <CardContent className='flex justify-center'>
 
             </CardContent>
             <CardFooter className='flex justify-between'>
-                <span className='text-red-500 font-extrabold'>{blood === "ap" ? "A+" : (blood === "an" ? "A-" : (blood === "bp" ? "B+" : (blood === "bn" ? "B-" : (blood === "abp" ? "AB+" : (blood === "abn" ? "AB-" : (blood === "op" ? "O+" : "O-"))))))}</span>
-                <Button variant="default" size="sm">View profile</Button>
+                <span className='text-red-500 font-extrabold'>
+                    {blood === "ap" ? "A+"
+                        :
+                        (blood === "an" ? "A-"
+                            :
+                            (blood === "bp" ? "B+"
+                                :
+                                (blood === "bn" ? "B-"
+                                    :
+                                    (blood === "abp" ? "AB+"
+                                        :
+                                        (blood === "abn" ? "AB-"
+                                            :
+                                            (blood === "op" ? "O+"
+                                                :
+                                                "O-")
+                                        )))))}
+                </span>
+                <Button variant="default" size="sm" className='bg-cyan-500'>View profile</Button>
             </CardFooter>
         </Card>
     )

@@ -5,6 +5,7 @@ import TitleProps from "../TitleProps";
 import ProfileCard from "../ProfileCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from "../ui/button";
 
 interface DonorProfileProps {
     userId: string;
@@ -49,6 +50,9 @@ const DonorProfile: React.FC = () => {
                     />
                 )
                 )}
+            </div>
+            <div className="flex justify-center mt-6">
+                <Button >Show More</Button>
             </div>
         </motion.div>
     )
