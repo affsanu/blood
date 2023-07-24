@@ -13,6 +13,7 @@ import { AlbumArtwork } from "./components/album-artwork"
 import { PodcastEmptyPlaceholder } from "./components/podcast-empty-placeholder"
 import { madeForYouAlbums } from "./data/albums"
 import HomeCard from "./components/home-card"
+import { UserProfileCard } from "./components/profile"
 
 
 export const metadata: Metadata = {
@@ -179,7 +180,7 @@ export default function Dashboard() {
               </div>
             </div>
             <Separator className="my-4" />
-            <PodcastEmptyPlaceholder />
+            <UserProfileCard />
           </TabsContent>
           <TabsContent
             value="records"
