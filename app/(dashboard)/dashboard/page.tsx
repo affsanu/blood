@@ -21,12 +21,6 @@ export const metadata: Metadata = {
   description: "User Dashboard of Priyo Blood.",
 }
 
-interface HomeCardProps {
-  title: string;
-  content: string;
-  desc: string;
-  logo: React.ReactElement<SVGElement>;
-}
 
 const cardData = [
   {
@@ -172,10 +166,10 @@ export default function Dashboard() {
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  New Episodes
+                  Profile Page
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  Your favorite profile. Updated daily.
+                  Your personal profile data.
                 </p>
               </div>
             </div>
