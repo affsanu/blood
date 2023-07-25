@@ -3,7 +3,10 @@ import { NextResponse } from "next/server"
 
 export async function GET(req: Request,) {
     try {
-        const users = await prisma.user.findMany();
+        const allUsers = await prisma.user.findMany();
+
+        const shuffledUsers = allUsers.sort(() => 0.5 - Math.random());
+        const users = shuffledUsers.slice(0, 5);
 
         return NextResponse.json(users);
     } catch (error) {

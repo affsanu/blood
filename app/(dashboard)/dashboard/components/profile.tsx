@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 interface ProfileData {
@@ -31,8 +32,41 @@ export function UserProfileCard() {
 
     if (isLoading) {
         return (
-            <div className="flex h-[450px] shrink-0 items-center justify-center rounded-md border border-dashed">
-                Loading.....
+            <div className="backdrop-blur-sm bg-white/30 border rounded-lg mt-14">
+                <div className="p-8 ">
+                    <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+                            <div>
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div>
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div>
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>    </div>    <div className="relative">
+                            <div className="w-48 h-48 bg-gradient-to-tr from-cyan-100 to-purple-200 mx-auto rounded-full  absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-red-500 text-5xl font-bold">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                            </div>
+                        </div>
+                        <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                            <Skeleton className="h-4 w-[200px]" />
+                        </div>
+                    </div>
+                    <div className="mt-20 text-center border-b pb-12">
+                        <Skeleton className="h-4 w-[200px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                    </div>
+                    <div className="mt-12 flex flex-col justify-center">
+                        <Skeleton className="h-4 w-[200px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                    </div>
+                </div>
             </div>
         )
     }

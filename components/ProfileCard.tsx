@@ -14,10 +14,14 @@ interface BloodCardProps {
     address: string;
     birth: string;
     district: string;
+    showProfileModal: boolean;
+    profileModalHandler: () => void;
 }
 
 
-const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district }: BloodCardProps) => {
+const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district, showProfileModal, profileModalHandler }: BloodCardProps) => {
+
+    console.log(showProfileModal);
     return (
         <Card className="w-auto mt-4  backdrop:blur-sm bg-white/10 ">
             <CardHeader className='flex justify-center items-center gap-1'>
@@ -55,7 +59,7 @@ const ProfileCard = ({ userId, name, blood, id, phone, address, birth, district 
                                                 "O-")
                                         )))))}
                 </span>
-                <Button variant="default" size="sm" className='bg-cyan-500'>View profile</Button>
+                <Button onClick={profileModalHandler} variant="default" size="sm" className='bg-cyan-500'>View profile</Button>
             </CardFooter>
         </Card>
     )

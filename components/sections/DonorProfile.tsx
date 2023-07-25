@@ -16,10 +16,17 @@ interface DonorProfileProps {
     address: string;
     birth: string;
     district: string;
+    showProfileModal: boolean; 
+    profileModalHandler: () => void;
 }
 
 const DonorProfile: React.FC = () => {
     const [users, setusers] = useState<DonorProfileProps[]>([]);
+    const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
+
+    const profileModalHandler = () => {
+        setShowProfileModal(!showProfileModal);
+    }
 
     useEffect(() => {
         // Fetch card data from the server using Axios
@@ -47,6 +54,8 @@ const DonorProfile: React.FC = () => {
                         address={user.address}
                         birth={user.birth}
                         district={user.district}
+                        showProfileModal={showProfileModal}
+                        profileModalHandler={profileModalHandler}
                     />
                 )
                 )}
